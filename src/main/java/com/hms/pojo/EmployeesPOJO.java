@@ -24,6 +24,7 @@ public class EmployeesPOJO {
 	private int salary;
 	private int department_Id;
 	private int experience;
+	private String employee_role;
 
 	public int getEmployee_Id() {
 		return employee_Id;
@@ -97,8 +98,16 @@ public class EmployeesPOJO {
 		this.experience = experience;
 	}
 
+	public String getEmployee_role() {
+		return employee_role;
+	}
+
+	public void setEmployee_role(String employee_role) {
+		this.employee_role = employee_role;
+	}
+
 	public EmployeesPOJO(String emloyee_Name, String email, int phone_Number, String hire_Date, String department_Name,
-			int salary, int department_Id, int experience) {
+			int salary, int department_Id, int experience, String employee_role) {
 		super();
 		this.emloyee_Name = emloyee_Name;
 		this.email = email;
@@ -108,6 +117,7 @@ public class EmployeesPOJO {
 		this.salary = salary;
 		this.department_Id = department_Id;
 		this.experience = experience;
+		this.employee_role = employee_role;
 	}
 
 	public EmployeesPOJO() {

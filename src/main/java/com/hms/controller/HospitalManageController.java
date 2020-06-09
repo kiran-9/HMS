@@ -16,20 +16,20 @@ public class HospitalManageController {
 	HospitalManageService service = new HospitalManageService();
 
 	@RequestMapping(value = "/doctors")
-	public String showDoctors(EmployeesPOJO employees, Model model) {
-		logger.info("Executing HospitalManageController :: doctors");
+	public String fectch_doctors_list(EmployeesPOJO employees, Model model) {
+		logger.info("Executing HospitalManageController :: fectch_doctors_list");
 
-		String result = service.showDoctors(employees, model);
+		String result = service.fectch_doctors_list(employees, model);
 
-		logger.info("Exit HospitalManageController :: doctors");
+		logger.info("Exit HospitalManageController :: fectch_doctors_list");
 		return result;
 	}
 
 	@RequestMapping(value = "/nurses")
-	public String showNurses(EmployeesPOJO emplyoyee) {
-		logger.info("Executing HospitalManageController :: nurses");
+	public String fectch_nurses_list(EmployeesPOJO emplyoyee) {
+		logger.info("Executing HospitalManageController :: fectch_nurses_list");
 
-		logger.info("Exit HospitalManageController :: nurses");
+		logger.info("Exit HospitalManageController :: fectch_nurses_list");
 		return null;
 	}
 

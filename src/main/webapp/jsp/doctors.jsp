@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,16 +16,13 @@
   <body><br>
 <div class="container">
 <div>
-<a class="btn btn-primary" href="addDoctor_form" role="button">Add Doctor</a>
-			
-		</div>
+<a  class="btn btn-primary" href="addDoctor_form" role="button">Add Doctor</a>
+</div>
 <br>
   <div class="row" align="center">
-    <div class="col-12">
       <table class="table table-bordered">
         <thead align="center">
           <tr>
-            <th scope="col">Sr.No</th>
             <th scope="col">ID </th>
             <th scope="col">Name</th>
             <th scope="col">Department</th>
@@ -36,9 +33,8 @@
           </tr>
         </thead>
         <tbody align="center">
-          <core:forEach var="doc" items="${doctors}">
+          <c:forEach var="doc" items="${doctors}">
           <tr>
-            <th scope="row">1</th>
             <td>${doc.employee_Id}</td>
             <td>${doc.emloyee_Name}</td>
             <td>${doc.department_Name}</td>
@@ -46,15 +42,14 @@
             <td>${doc.email}</td>
             <td>${doc.hire_Date}</td>
             <td>
-              <button type="button" class="btn btn-primary"><i class="fa fa-eye"></i></button>
-              <button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button>
-            <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+            <a class="btn btn-primary" href="view_employee_profile" role="button"><i class="fa fa-eye"></i></a>
+            <a class="btn btn-success" href="addDoctor_form" role="button"><i class="fa fa-edit"></i></a>
+            <a class="btn btn-danger" href="addDoctor_form" role="button"><i class="fa fa-trash"></i></a>
             </td>
           </tr>
-          </core:forEach>
+          </c:forEach>
         </tbody>
       </table>
-    </div>
   </div>
 </div>
  

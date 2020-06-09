@@ -15,6 +15,7 @@ public class UserController {
 
 	final static Logger logger = Logger.getLogger(UserController.class);
 
+	/* when we click register in login in form this method will execute */
 	@RequestMapping(value = "/register")
 	public String register() {
 		logger.info("Executing UserController :: register");
@@ -23,6 +24,7 @@ public class UserController {
 		return "register";
 	}
 
+//	 when we click login in register in form this method will execute 
 	@RequestMapping(value = "/login")
 	public String login() {
 
@@ -32,6 +34,7 @@ public class UserController {
 		return "login";
 	}
 
+//	this method execute when we registering new user
 	@RequestMapping(value = "/registerUser", method = RequestMethod.POST)
 	public String registerUser(UserPOJO user) {
 
@@ -44,6 +47,7 @@ public class UserController {
 		return result;
 	}
 
+//	executes when existing user login
 	@RequestMapping(value = "/loginUser", method = RequestMethod.POST)
 	public String loginUser(@RequestParam("email") String Uemail, @RequestParam("password") String password,
 			Model model) {
@@ -55,7 +59,9 @@ public class UserController {
 		logger.info("Exit UserController :: loginUser");
 		return result;
 	}
-	
+
+//	executes navbar home link
+
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String homeNavLink() {
 		logger.info("Executing UserController :: homeNavLink");
@@ -63,6 +69,8 @@ public class UserController {
 		logger.info("Exit UserController :: homeNavLink");
 		return "home";
 	}
+
+//	executes navbar dashboardlink
 
 	@RequestMapping(value = "/dashboardNavLink", method = RequestMethod.GET)
 	public String dashboardNavLink() {
@@ -72,6 +80,8 @@ public class UserController {
 		return "dashboard";
 	}
 
+//	executes navbar ourteam link
+
 	@RequestMapping(value = "/ourTeam", method = RequestMethod.GET)
 	public String ourTeamNavLink() {
 		logger.info("Executing UserController :: ourTeamNavLink");
@@ -79,6 +89,8 @@ public class UserController {
 		logger.info("Exit UserController :: ourTeamNavLink");
 		return "administration";
 	}
+
+//	executes navbar locations link
 
 	@RequestMapping(value = "/locations", method = RequestMethod.GET)
 	public String locationsNavLink() {
@@ -88,6 +100,8 @@ public class UserController {
 		return "locations";
 	}
 
+//	executes navbar payments link
+
 	@RequestMapping(value = "/payments", method = RequestMethod.GET)
 	public String paymentsNavLink() {
 		logger.info("Executing UserController :: paymentsNavLink");
@@ -95,6 +109,8 @@ public class UserController {
 		logger.info("Exit UserController :: paymentsNavLink");
 		return "payments";
 	}
+
+//	executes navbar symptomsCheck link
 
 	@RequestMapping(value = "/symptomsCheck", method = RequestMethod.GET)
 	public String symptomsCheckNavLink() {
@@ -104,6 +120,8 @@ public class UserController {
 		return "symptomsCheck";
 	}
 
+//	executes navbar health link
+
 	@RequestMapping(value = "/healthTips", method = RequestMethod.GET)
 	public String healthTipsNavLink() {
 		logger.info("Executing UserController :: healthTipsNavLink");
@@ -111,6 +129,8 @@ public class UserController {
 		logger.info("Exit UserController :: healthTipsNavLink");
 		return "healthTips";
 	}
+
+//	executes navbar bookAppointement link
 
 	@RequestMapping(value = "/bookAppointment", method = RequestMethod.GET)
 	public String bookAppointmentNavLink() {
@@ -120,6 +140,8 @@ public class UserController {
 		return "bookAppointment";
 	}
 
+//	executes navbar Online doctor consult  link
+
 	@RequestMapping(value = "/onlineConsultantDoctor", method = RequestMethod.GET)
 	public String onlineConsultantDoctorNavLink() {
 		logger.info("Executing UserController :: onlineConsultantDoctorNavLink");
@@ -127,6 +149,8 @@ public class UserController {
 		logger.info("Exit UserController :: onlineConsultantDoctorNavLink");
 		return "onlineConsultantDoctor";
 	}
+
+//	executes navbar contact link
 
 	@RequestMapping(value = "/contact", method = RequestMethod.GET)
 	public String contactNavLink() {
@@ -136,6 +160,8 @@ public class UserController {
 		return "contact";
 	}
 
+//	executes navbar feedback link
+
 	@RequestMapping(value = "/feedback", method = RequestMethod.GET)
 	public String feedbackNavLink() {
 		logger.info("Executing UserController :: feedbackNavLink");
@@ -143,6 +169,8 @@ public class UserController {
 		logger.info("Exit UserController :: feedbackNavLink");
 		return "feedback";
 	}
+
+//	executes navbar profile link
 
 	@RequestMapping(value = "/profile", method = RequestMethod.GET)
 	public String profileNavLink() {
@@ -152,6 +180,8 @@ public class UserController {
 		return "profile";
 	}
 
+//	executes navbar logout link
+
 	@RequestMapping(value = "/logOut", method = RequestMethod.GET)
 	public String logOutNavLink() {
 		logger.info("Executing UserController :: logOutNavLink");
@@ -159,6 +189,5 @@ public class UserController {
 		logger.info("Exit UserController :: logOutNavLink");
 		return "home";
 	}
-	
 
 }

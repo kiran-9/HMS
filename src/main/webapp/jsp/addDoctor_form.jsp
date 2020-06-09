@@ -13,8 +13,6 @@
   <%@include  file="/html/navbar.html" %>
   <body>
 
-
-
 <div class="container register-form">
             <div class="form">
                 <div class="note">

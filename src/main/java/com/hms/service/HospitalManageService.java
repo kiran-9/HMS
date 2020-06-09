@@ -19,21 +19,22 @@ public class HospitalManageService {
 		logger.info("Executing HospitalManageService :: addDoctor");
 
 		dao.addDoctor(employee, model);
+		List<EmployeesPOJO> doctors_list = dao.fectch_doctors_list(employee);
+		
 
-		String msg = employee.getEmloyee_Name() + " Updated Successfully";
-		model.addAttribute(msg);
+		model.addAttribute("doctors", doctors_list);
 
 		logger.info("Exit HospitalManageService :: addDoctor");
 		return "doctors";
 	}
 
-	public String showDoctors(EmployeesPOJO employees, Model model) {
-		logger.info("Executing HospitalManageController :: addDoctor");
+	public String fectch_doctors_list(EmployeesPOJO employees, Model model) {
+		logger.info("Executing HospitalManageController :: fectch_doctors_list");
 
-		List<EmployeesPOJO> doctorsList = dao.showDoctors(employees);
+		List<EmployeesPOJO> doctorsList = dao.fectch_doctors_list(employees);
 		model.addAttribute("doctors", doctorsList);
 
-		logger.info("Exit HospitalManageController :: addDoctor");
+		logger.info("Exit HospitalManageController :: fectch_doctors_list");
 		return "doctors";
 	}
 

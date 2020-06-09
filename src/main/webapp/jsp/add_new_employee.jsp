@@ -12,9 +12,13 @@
   </head>
   <%@include  file="/html/navbar.html" %>
   <body>
-  <div  style="text-align:center" id="form_login">
-  <b><marquee direction="left"bgcolor="white">Welcome To HMS, Now Consult Doctor In Just One Click & Checkout For Daily Health Tips Pay Your Bills Simple With In Single Click </marquee></b>
-  </div>
+  <form action="">
+  
+  <input type="text" name ="employee_name" placeholder="employee name *" style="box-sizing: content-box;">
+  
+  </form>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
