@@ -23,13 +23,9 @@
 						<%@include file="/html/clock.html"%>
 					</div>
 					<h3 class="card-title">
-						Updates
-						</h3S>
-						<h5>
-							Coronavirus disease (COVID-19) Situation dashboard This
-							interactive dashboard/map provides the latest global numbers and
-							numbers by country of COVID-19 cases on a daily basis.
-							</h5S>
+						Chat
+						</h3>
+						
 				</div>
 			</div>
 		</div>
@@ -171,7 +167,12 @@
 		<a href="Doctors" style="text-decoration:none; color: black;">
 		<div class="card" align="center" >
 				<div class="card-body">
-					<h5 class="card-title">News</h5>
+					<h5 class="card-title" style="color: red;">News</h5>
+					<h6 style="color: green;">
+							Coronavirus disease (COVID-19) Situation dashboard This
+							interactive dashboard/map provides the latest global numbers and
+							numbers by country of COVID-19 cases on a daily basis.
+							</h6>
 				</div>
 			</div>
 		</a>

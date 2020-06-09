@@ -12,6 +12,12 @@
 
 	<context:component-scan
 		base-package="com.hms.controller" />
+		
+	<bean id="HospitalDao" class="com.hms.dao.HospitalManageDao"></bean>
+	
+	<bean id="HospitalServie" class="com.hms.service.HospitalManageService"></bean>
+	
+		
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -22,4 +28,6 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
+	
+	
 </beans>

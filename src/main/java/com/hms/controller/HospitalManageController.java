@@ -1,6 +1,7 @@
 package com.hms.controller;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +14,9 @@ import com.hms.service.HospitalManageService;
 public class HospitalManageController {
 
 	final static Logger logger = Logger.getLogger(HospitalManageController.class);
-	HospitalManageService service = new HospitalManageService();
+
+	@Autowired
+	HospitalManageService service;
 
 	@RequestMapping(value = "/doctors")
 	public String fectch_doctors_list(EmployeesPOJO employees, Model model) {
@@ -26,11 +29,13 @@ public class HospitalManageController {
 	}
 
 	@RequestMapping(value = "/nurses")
-	public String fectch_nurses_list(EmployeesPOJO emplyoyee) {
+	public String fectch_nurses_list(EmployeesPOJO emplyoyee, Model model) {
 		logger.info("Executing HospitalManageController :: fectch_nurses_list");
 
+		String result = service.fectch_nurses_list(emplyoyee, model);
+
 		logger.info("Exit HospitalManageController :: fectch_nurses_list");
-		return null;
+		return result;
 	}
 
 	@RequestMapping(value = "/patients")
@@ -82,11 +87,13 @@ public class HospitalManageController {
 	}
 
 	@RequestMapping(value = "/employees")
-	public String employees() {
+	public String employees(EmployeesPOJO employees, Model model) {
 		logger.info("Executing HospitalManageController :: employees");
-
+		
+		String result = service.employees(employees, model);
+		
 		logger.info("Exit HospitalManageController :: employees");
-		return null;
+		return result;
 	}
 
 	@RequestMapping(value = "/reports")
