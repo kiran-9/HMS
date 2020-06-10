@@ -37,3 +37,26 @@
 .div6 {
 	grid-area: 3/3/5/5;
 }
+
+/* //table */
+
+.table {
+	width: 100%;
+	table-layout: auto;
+}
+.thead {
+background-color: #B2DFFF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

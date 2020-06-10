@@ -17,14 +17,14 @@ public class HospitalManageDao {
 
 	final static Logger logger = Logger.getLogger(HospitalManageService.class);
 
-	Configuration configure = new Configuration().configure();
-	SessionFactory sf = configure.buildSessionFactory();
-	Session session = sf.openSession();
-	Transaction tx = session.beginTransaction();
-
 	public List<EmployeesPOJO> fectch_doctors_list(EmployeesPOJO employees) {
 		logger.info("Executing HospitalManageDao :: fectch_doctors_list");
 
+		Configuration configure = new Configuration().configure();
+		SessionFactory sf = configure.buildSessionFactory();
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+		
 		Query<EmployeesPOJO> query = session.createQuery("from EmployeesPOJO where employee_role =: role");
 		query.setParameter("role", "doctor");
 		List<EmployeesPOJO> doctorsList = query.list();
@@ -38,6 +38,11 @@ public class HospitalManageDao {
 	public void addDoctor(EmployeesPOJO employee, Model model) {
 		logger.info("Executing HospitalManageDao :: addDoctor");
 
+		Configuration configure = new Configuration().configure();
+		SessionFactory sf = configure.buildSessionFactory();
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+		
 		session.save(employee);
 
 		tx.commit();
@@ -49,6 +54,11 @@ public class HospitalManageDao {
 	public List<EmployeesPOJO> fectch_nurses_list(EmployeesPOJO emplyoyee) {
 		logger.info("Executing HospitalManageDao :: fectch_nurses_list");
 
+		Configuration configure = new Configuration().configure();
+		SessionFactory sf = configure.buildSessionFactory();
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+		
 		Query<EmployeesPOJO> query = session.createQuery("from EmployeesPOJO where employee_role =: role ");
 		query.setParameter("role", "nurse");
 		List<EmployeesPOJO> list = query.list();
@@ -60,6 +70,11 @@ public class HospitalManageDao {
 	public List<EmployeesPOJO> employees(EmployeesPOJO employees) {
 		logger.info("Executing HospitalManageDao :: employees");
 
+		Configuration configure = new Configuration().configure();
+		SessionFactory sf = configure.buildSessionFactory();
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+		
 		Query<EmployeesPOJO> query = session.createQuery("from EmployeesPOJO");
 		List<EmployeesPOJO> list = query.list();
 
