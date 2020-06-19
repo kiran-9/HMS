@@ -17,6 +17,11 @@
     </head>
 
     <body>
+    
+    <font color="red">
+${message} </br></br>
+${message2}
+</font>
         <div class="container">
             <div class="row">            
                 <div class="login-container col-lg-4 col-md-6 col-sm-8 col-xs-12">

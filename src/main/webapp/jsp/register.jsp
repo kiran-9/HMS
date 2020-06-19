@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="pos-r">                                    
-                                        <input id="form-password" type="password" name="address" placeholder="City" class="form-password form-control" >
+                                        <input id="form-password" type="text" name="address" placeholder="City" class="form-password form-control" >
                                         <i class="fa fa-compass"></i>
                                         <span></span>                                        
                                     </div>

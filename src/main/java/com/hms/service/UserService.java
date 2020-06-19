@@ -39,11 +39,13 @@ public class UserService {
 				logger.info("user object not null");
 				
 				String message = "Hello"+ user.getName()+"! Welocme Back";
-				model.addAttribute(message);
+				
+				//model.addAttribute(message);
 				return "dashboard";
 			}else {
-				String message = "Invalid Username Or Password";
-				model.addAttribute(message);
+				model.addAttribute("message", "Invalid Username or password entered!! Please try again!!");
+
+				//return "login";
 			}
 			
 			logger.info("Exit UserService :: loginUser");

@@ -41,6 +41,9 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Experience *" name="experience"/>
                             </div>
+                             <!-- <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Department_Id" name="department_Id"/>
+                            </div> -->
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Hire Date - DD/MM/YYYY *" name="hire_Date"/>
                             </div>
