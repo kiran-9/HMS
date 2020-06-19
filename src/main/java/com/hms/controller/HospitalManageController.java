@@ -55,7 +55,7 @@ public class HospitalManageController {
 	}
 	
 	/*-------------------------------------------------------------------------------------------------*/
-//Save's Appointment Details 
+       //Save's Appointment Details 
 	@RequestMapping(value = "/bookAppointments")
 	public String saveAppointments(AppointmentsPOJO appointment, Model model) {
 		logger.info("Executing HospitalManageController :: appointments");
