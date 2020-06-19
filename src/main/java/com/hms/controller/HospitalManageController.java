@@ -115,7 +115,7 @@ public class HospitalManageController {
 	@RequestMapping(value = "/administration")
 	public String administration() {
 		logger.info("Executing HospitalManageController :: administration");
-
+ 
 		logger.info("Exit HospitalManageController :: administration");
 		return "administration";
 	}
