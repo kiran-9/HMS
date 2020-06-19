@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.hms.pojo.AppointmentsPOJO;
 import com.hms.pojo.EmployeesPOJO;
 import com.hms.service.HospitalManageService;
 
@@ -17,6 +18,19 @@ public class HospitalManageController {
 
 	@Autowired
 	HospitalManageService service;
+	
+	@RequestMapping(value = "/addNewDoctor", method = RequestMethod.POST)
+	public String addDoctor(EmployeesPOJO employee, Model model) {
+		logger.info("Executing HospitalManageController :: addDoctor");
+		
+		HospitalManageService service = new HospitalManageService();
+		String result = service.addDoctor(employee, model);
+		
+		logger.info("Exit HospitalManageController :: addDoctor");
+		return result;
+	}
+	
+	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/doctors")
 	public String fectch_doctors_list(EmployeesPOJO employees, Model model) {
@@ -27,6 +41,8 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: fectch_doctors_list");
 		return result;
 	}
+	
+	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/nurses")
 	public String fectch_nurses_list(EmployeesPOJO emplyoyee, Model model) {
@@ -37,6 +53,20 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: fectch_nurses_list");
 		return result;
 	}
+	
+	/*-------------------------------------------------------------------------------------------------*/
+       //Save's Appointment Details 
+	@RequestMapping(value = "/bookAppointments")
+	public String saveAppointments(AppointmentsPOJO appointment, Model model) {
+		logger.info("Executing HospitalManageController :: appointments");
+		
+		String result = service.saveAppointments(appointment, model);
+		
+		logger.info("Exit HospitalManageController :: appointments");
+		return result;
+	}
+	
+	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/patients")
 	public String showPatients() {
@@ -45,6 +75,8 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: patients");
 		return null;
 	}
+	
+	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/pharmacy")
 	public String showPharmacy() {
@@ -53,6 +85,8 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: pharmacy");
 		return null;
 	}
+	
+	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/surgeries")
 	public String showSurgeries() {
@@ -61,6 +95,8 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: surgeries");
 		return null;
 	}
+	
+	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/laboratory")
 	public String laboratory() {
@@ -69,14 +105,8 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: laboratory");
 		return null;
 	}
-
-	@RequestMapping(value = "/appointments")
-	public String appointments() {
-		logger.info("Executing HospitalManageController :: appointments");
-
-		logger.info("Exit HospitalManageController :: appointments");
-		return null;
-	}
+	
+	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/schedule")
 	public String schedule() {
@@ -85,6 +115,8 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: schedule");
 		return null;
 	}
+	
+	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/employees")
 	public String employees(EmployeesPOJO employees, Model model) {
@@ -95,6 +127,8 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: employees");
 		return result;
 	}
+	
+	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/reports")
 	public String reports() {
@@ -103,6 +137,8 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: reports");
 		return null;
 	}
+	
+	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/accounts")
 	public String accounts() {
@@ -111,6 +147,8 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: accounts");
 		return null;
 	}
+	
+	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/administration")
 	public String administration() {
@@ -119,6 +157,8 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: administration");
 		return "administration";
 	}
+	
+	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/addDoctor_form")
 	public String addDoctorForm() {
@@ -127,16 +167,8 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: addDoctorForm");
 		return "addDoctor_form";
 	}
+	
+	/*-------------------------------------------------------------------------------------------------*/
 
-	@RequestMapping(value = "/addNewDoctor", method = RequestMethod.POST)
-	public String addDoctor(EmployeesPOJO employee, Model model) {
-		logger.info("Executing HospitalManageController :: addDoctor");
-
-		HospitalManageService service = new HospitalManageService();
-		String result = service.addDoctor(employee, model);
-
-		logger.info("Exit HospitalManageController :: addDoctor");
-		return result;
-	}
 
 }
