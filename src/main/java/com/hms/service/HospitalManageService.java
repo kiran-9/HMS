@@ -18,7 +18,7 @@ import net.bytebuddy.matcher.ModifierMatcher.Mode;
 public class HospitalManageService {
 
 	final static Logger logger = Logger.getLogger(HospitalManageService.class);
-	
+
 	@Autowired
 	HospitalManageDao dao;
 
@@ -72,14 +72,30 @@ public class HospitalManageService {
 		return "employees";
 
 	}
+
 	/*-------------------------------------------------------------------------------------------------*/
 	public String saveAppointments(AppointmentsPOJO appointment, Model model) {
 		logger.info("Executing HospitalManageService :: saveAppointments");
-		
+
 		dao.saveAppointments(appointment);
+		model.addAttribute("message", "Appointment has saved sucessfully");
 		
 		logger.info("Exit HospitalManageService :: saveAppointments");
-		return "bookAppointnent";
+		
+		return "bookAppointment";
+	}
+
+	/*-------------------------------------------------------------------------------------------------*/
+
+	public String fetch_AppointmentsList(AppointmentsPOJO appointment, Model model) {
+		logger.info("Executing HospitalManageService :: fetch_AppointmentsList");
+
+		List<AppointmentsPOJO> fetch_AppointmentsList = dao.fetch_AppointmentsList(appointment);
+		model.addAttribute("message", "Appointment has saved sucessfully");
+		
+		logger.info("Exit HospitalManageService :: fetch_AppointmentsList");
+		
+		return "appointmentsList";
 	}
 
 	/*-------------------------------------------------------------------------------------------------*/

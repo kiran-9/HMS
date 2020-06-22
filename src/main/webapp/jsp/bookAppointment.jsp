@@ -12,6 +12,8 @@
   </head>
   <%@include  file="/html/navbar.html" %>
   <body>
+    <font color="red">
+${message} </br></br>
  <div class="container register-form">
             <div class="form">
                 <div class="note">
