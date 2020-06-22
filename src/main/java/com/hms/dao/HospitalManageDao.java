@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 
 import com.hms.pojo.AppointmentsPOJO;
 import com.hms.pojo.EmployeesPOJO;
+import com.hms.pojo.PatientsPOJO;
 import com.hms.service.HospitalManageService;
 
 public class HospitalManageDao {
@@ -50,7 +51,7 @@ public class HospitalManageDao {
 
 		tx.commit();
 		session.close();
-		
+
 		logger.info("Exit HospitalManageDao :: fectch_doctors_list");
 		return doctorsList;
 	}
@@ -71,7 +72,7 @@ public class HospitalManageDao {
 
 		tx.commit();
 		session.close();
-		
+
 		logger.info("Exit HospitalManageDao :: fectch_nurses_list");
 		return list;
 	}
@@ -89,29 +90,61 @@ public class HospitalManageDao {
 		Query<EmployeesPOJO> query = session.createQuery("from EmployeesPOJO");
 		List<EmployeesPOJO> list = query.list();
 
-		
 		tx.commit();
 		session.close();
-		
+
 		logger.info("Exit HospitalManageDao :: employees");
 		return list;
 	}
 
 	public void saveAppointments(AppointmentsPOJO appointment) {
-		
+
 		Configuration configure = new Configuration().configure();
 		SessionFactory sf = configure.buildSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = session.beginTransaction();
-		
+
 		session.save(appointment);
-		
+
 		tx.commit();
 		session.close();
-		
-		
+
 	}
 
 	/*-------------------------------------------------------------------------------------------------*/
+
+	public void addPatientForm(PatientsPOJO patient) {
+		logger.info("Executing HospitalManagementDao :: addPatientForm");
+
+		Configuration con = new Configuration().configure();
+		SessionFactory sf = con.buildSessionFactory();
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+
+		session.save(patient);
+		tx.commit();
+		session.close();
+
+		logger.info("Exit HospitalManagementDao :: addPatientForm");
+	}
+
+	/*-------------------------------------------------------------------------------------------------*/
+
+	public List<PatientsPOJO> fetch_patients_list(PatientsPOJO patients) {
+		logger.info("Executing HospitalManagementDao :: fetch_patients_list");
+
+		Configuration con = new Configuration().configure();
+		SessionFactory sf = con.buildSessionFactory();
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+
+		Query<PatientsPOJO> query = session.createQuery("from PatientsPOJO");
+		List<PatientsPOJO> list = query.list();
+
+		session.close();
+
+		logger.info("Exit HospitalManagementDao :: fetch_patients_list");
+		return list;
+	}
 
 }

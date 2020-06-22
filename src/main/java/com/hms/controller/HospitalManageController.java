@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hms.pojo.AppointmentsPOJO;
 import com.hms.pojo.EmployeesPOJO;
+import com.hms.pojo.PatientsPOJO;
 import com.hms.service.HospitalManageService;
 
 @Controller
@@ -18,18 +19,18 @@ public class HospitalManageController {
 
 	@Autowired
 	HospitalManageService service;
-	
+
 	@RequestMapping(value = "/addNewDoctor", method = RequestMethod.POST)
 	public String addDoctor(EmployeesPOJO employee, Model model) {
 		logger.info("Executing HospitalManageController :: addDoctor");
-		
+
 		HospitalManageService service = new HospitalManageService();
 		String result = service.addDoctor(employee, model);
-		
+
 		logger.info("Exit HospitalManageController :: addDoctor");
 		return result;
 	}
-	
+
 	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/doctors")
@@ -41,7 +42,7 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: fectch_doctors_list");
 		return result;
 	}
-	
+
 	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/nurses")
@@ -53,29 +54,31 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: fectch_nurses_list");
 		return result;
 	}
-	
+
 	/*-------------------------------------------------------------------------------------------------*/
-       //Save's Appointment Details 
+	// Save's Appointment Details
 	@RequestMapping(value = "/bookAppointments")
 	public String saveAppointments(AppointmentsPOJO appointment, Model model) {
 		logger.info("Executing HospitalManageController :: appointments");
-		
+
 		String result = service.saveAppointments(appointment, model);
-		
+
 		logger.info("Exit HospitalManageController :: appointments");
 		return result;
 	}
-	
+
 	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/patients")
-	public String showPatients() {
-		logger.info("Executing HospitalManageController :: patients");
+	public String showPatients(PatientsPOJO patients, Model model) {
+		logger.info("Executing HospitalManageController :: showPatients");
 
-		logger.info("Exit HospitalManageController :: patients");
-		return null;
+		String restlt = service.showPatients(patients, model);
+
+		logger.info("Exit HospitalManageController :: showPatients");
+		return restlt;
 	}
-	
+
 	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/pharmacy")
@@ -85,7 +88,7 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: pharmacy");
 		return null;
 	}
-	
+
 	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/surgeries")
@@ -95,7 +98,7 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: surgeries");
 		return null;
 	}
-	
+
 	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/laboratory")
@@ -105,7 +108,7 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: laboratory");
 		return null;
 	}
-	
+
 	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/schedule")
@@ -115,19 +118,19 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: schedule");
 		return null;
 	}
-	
+
 	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/employees")
 	public String employees(EmployeesPOJO employees, Model model) {
 		logger.info("Executing HospitalManageController :: employees");
-		
+
 		String result = service.employees(employees, model);
-		
+
 		logger.info("Exit HospitalManageController :: employees");
 		return result;
 	}
-	
+
 	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/reports")
@@ -137,7 +140,7 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: reports");
 		return null;
 	}
-	
+
 	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/accounts")
@@ -147,17 +150,17 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: accounts");
 		return null;
 	}
-	
+
 	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/administration")
 	public String administration() {
 		logger.info("Executing HospitalManageController :: administration");
- 
+
 		logger.info("Exit HospitalManageController :: administration");
 		return "administration";
 	}
-	
+
 	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/addDoctor_form")
@@ -167,8 +170,27 @@ public class HospitalManageController {
 		logger.info("Exit HospitalManageController :: addDoctorForm");
 		return "addDoctor_form";
 	}
-	
+
 	/*-------------------------------------------------------------------------------------------------*/
 
+	@RequestMapping(value = "/addNewPatient")
+	public String addPatientForm(PatientsPOJO patients, Model model) {
+		logger.info("Executing HospitalManagementController :: addPatientForm");
+
+		String result = service.addPatientForm(patients, model);
+
+		logger.info("Exit HospitalManagementController :: addPatientForm");
+		return result;
+	}
+
+	/*------------------------------------------------------------------------------------------------------*/
+
+	@RequestMapping(value = "/add_new_patient_form")
+	public String add_new_patient() {
+		logger.info("Executing HospitalManagementController :: addPatientForm");
+
+		logger.info("Exit HospitalManagementController :: addPatientForm");
+		return "add_new_patient_form";
+	}
 
 }

@@ -3,22 +3,17 @@ package com.hms.service;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.hms.dao.HospitalManageDao;
 import com.hms.pojo.AppointmentsPOJO;
 import com.hms.pojo.EmployeesPOJO;
-
-import net.bytebuddy.matcher.ModifierMatcher.Mode;
+import com.hms.pojo.PatientsPOJO;
 
 public class HospitalManageService {
 
 	final static Logger logger = Logger.getLogger(HospitalManageService.class);
-	
+
 	@Autowired
 	HospitalManageDao dao;
 
@@ -72,16 +67,38 @@ public class HospitalManageService {
 		return "employees";
 
 	}
+
 	/*-------------------------------------------------------------------------------------------------*/
 	public String saveAppointments(AppointmentsPOJO appointment, Model model) {
 		logger.info("Executing HospitalManageService :: saveAppointments");
-		
+
 		dao.saveAppointments(appointment);
-		
+
 		logger.info("Exit HospitalManageService :: saveAppointments");
 		return "bookAppointnent";
 	}
 
 	/*-------------------------------------------------------------------------------------------------*/
+
+	public String addPatientForm(PatientsPOJO patients, Model model) {
+		logger.info("Executing HospitalManageService :: addPatientForm");
+
+		dao.addPatientForm(patients);
+		List<PatientsPOJO> patients_list = dao.fetch_patients_list(patients);
+		model.addAttribute(patients_list);
+
+		logger.info("Exit HospitalManagemeService :: addPatientForm");
+		return "patients";
+	}
+
+	public String showPatients(PatientsPOJO patients, Model model) {
+		logger.info("Executing HospitalManagemeService :: showPatients");
+
+		List<PatientsPOJO> patients_list = dao.fetch_patients_list(patients);
+		model.addAttribute("patients", patients_list);
+
+		logger.info("Exit HospitalManagemeService :: showPatients");
+		return "patients";
+	}
 
 }
