@@ -1,5 +1,7 @@
 package com.hms.controller;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -67,6 +69,17 @@ public class HospitalManageController {
 		return result;
 	}
 
+	/*-------------------------------------------------------------------------------------------------*/
+    //Fetch Appointment Details 
+	@RequestMapping(value = "")
+	public String fetch_AppointmentsList(AppointmentsPOJO appointment, Model model) {
+		logger.info("Executing HospitalManageController :: appointments");
+		
+		String result = service.fetch_AppointmentsList(appointment, model);
+		
+		logger.info("Exit HospitalManageController :: appointments");
+		return result;
+	}
 	/*-------------------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/patients")

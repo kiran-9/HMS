@@ -1,13 +1,16 @@
 package com.hms.pojo;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
+
 @Entity
-@Table(name = "AppointmentsList")
+@Table(name = "appointmentslist")
 public class AppointmentsPOJO {
 	
 	private String Reason;
 	private String Name;
+	@Id
 	private String email;
 	private String phone_Number;
 	

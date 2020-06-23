@@ -3,6 +3,7 @@ package com.hms.dao;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.apache.log4j.helpers.QuietWriter;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -96,8 +97,11 @@ public class HospitalManageDao {
 		logger.info("Exit HospitalManageDao :: employees");
 		return list;
 	}
+	
+	/*-------------------------------------------------------------------------------------------------*/
 
 	public void saveAppointments(AppointmentsPOJO appointment) {
+		logger.info("Executing HospitalManageDao :: saveAppointments");
 
 		Configuration configure = new Configuration().configure();
 		SessionFactory sf = configure.buildSessionFactory();
@@ -108,7 +112,7 @@ public class HospitalManageDao {
 
 		tx.commit();
 		session.close();
-
+    logger.info("Exit HospitalManageDao :: saveAppointments");
 	}
 
 	/*-------------------------------------------------------------------------------------------------*/
@@ -124,8 +128,28 @@ public class HospitalManageDao {
 		session.save(patient);
 		tx.commit();
 		session.close();
-
 		logger.info("Exit HospitalManagementDao :: addPatientForm");
+	}
+	
+	/*-------------------------------------------------------------------------------------------------*/
+	
+	public List<AppointmentsPOJO> fetch_AppointmentsList(AppointmentsPOJO appointment) {
+		
+		logger.info("Executing HospitalManageDao :: fetch_AppointmentsList");
+
+		Configuration configure = new Configuration().configure();
+		SessionFactory sf = configure.buildSessionFactory();
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+		
+		Query<AppointmentsPOJO> query = session.createQuery("from AppointmentsPOJO");
+		List<AppointmentsPOJO> list = query.list();
+		
+		tx.commit();
+		session.close();
+		
+		logger.info("Exit HospitalManageDao :: fetch_AppointmentsList");
+		return list;
 	}
 
 	/*-------------------------------------------------------------------------------------------------*/
