@@ -16,7 +16,9 @@
 		<mapping class="com.hms.pojo.UserPOJO" />
 		<mapping class="com.hms.pojo.DepartmentsPOJO" />
 		<mapping class="com.hms.pojo.EmployeesPOJO" />
-		<mapping class="com.hms.pojo.AppointmentsPOJO" />
+    <mapping class="com.hms.pojo.AppointmentsPOJO" />
+		<mapping class="com.hms.pojo.PatientsPOJO" />
+
 	</session-factory>
 
 

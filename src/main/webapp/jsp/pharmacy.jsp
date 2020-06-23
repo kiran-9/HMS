@@ -11,9 +11,28 @@
     <title>HMS</title>
   </head>
   <%@include  file="/html/navbar.html" %>
-  <style><%@include file="/css/card.css"%></style>
+  <style><%@include file="/css/pharmacy.css"%></style>
+  <%-- <style><%@include file="/css/card.css"%></style> --%>
   <body>
-<h1>uc</h1>
+
+	
+
+
+<div class="grid-container">
+  <div class="chat"><h1>hello</h1></div>
+  <div class="revenue">
+    <div class="sales"><h1>hello</h1></div>
+    <div class="expances"><h1>hello</h1></div>
+  </div>
+  <div class="search"><h1>hello</h1></div>
+  <div class="calculator"><h1>hello</h1></div>
+  <div class="recentsell"><h1>hell00o</h1></div>
+</div> 
+  
+  
+  
+
+
 	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

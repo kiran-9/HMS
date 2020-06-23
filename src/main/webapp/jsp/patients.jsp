@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,11 +10,44 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>tips</title>
+    <title>Patients</title>
   </head>
   <%@include  file="/html/navbar.html" %>
    <style ><%@include  file="/css/card.css" %></style>
   <body>
+
+<div>
+<a  class="btn btn-primary" href="add_new_patient_form" role="button">Add Patient</a>
+</div>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-on0t">Patient Name</th>
+    <th class="tg-on0t">Sympotem</th>
+    <th class="tg-on0t">Doc-Name</th>
+    <th class="tg-on0t">Bed.No</th>
+    <th class="tg-on0t">Date Of Adimit</th>
+    <th class="tg-on0t">Contact Number</th>
+    <th class="tg-on0t">Surgery</th>
+    <th class="tg-on0t">Comments</th>
+  </tr>
+</thead>
+<tbody align="center">
+<c:forEach var="pat" items="${patients}">
+  <tr>
+    <td class="tg-jgo1">${pat.patName}</td>
+    <td class="tg-jgo1">${pat.patSympotem}</td>
+    <td class="tg-jgo1">${pat.patSymDoctor}</td>
+    <td class="tg-jgo1">${pat.patBed}</td>
+    <td class="tg-jgo1">${pat.patAdimitionDate}</td>
+    <td class="tg-jgo1">${pat.patPhone}</td>
+    <td class="tg-jgo1">${pat.patSurgery}</td>
+    <td class="tg-jgo1">${pat.patSurgeryComments}</td>
+  </tr>
+</c:forEach>
+</tbody>
+</table>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

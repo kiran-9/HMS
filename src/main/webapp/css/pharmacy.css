@@ -1,0 +1,51 @@
+.grid-container {
+	display: grid;
+	grid-template-columns: 1.5fr repeat(2, 1fr) 2fr;
+	grid-template-rows: repeat(3, 1fr);
+	gap: 5px 5px;
+	grid-template-areas: "chat revenue revenue calculator"
+		"chat search search calculator"
+		"recentsell recentsell recentsell calculator";
+}
+
+.chat {
+	grid-area: chat;
+	background-color: lime;
+	
+}
+
+.revenue {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(2, 1fr);
+	gap: 3px 1px;
+	grid-template-areas: "sales" "expances";
+	grid-area: revenue;
+	background-color: #c0c0c0;
+}
+
+.sales {
+	grid-area: sales;
+	background-color: blue;
+	
+}
+
+.expances {
+	grid-area: expances;
+	background-color: aqua;
+}
+
+.search {
+	grid-area: search;
+	background-color: maroon;
+}
+
+.calculator {
+	grid-area: calculator;
+	background-color: navy;
+}
+
+.recentsell {
+	grid-area: recentsell;
+	background-color: silver;
+}
